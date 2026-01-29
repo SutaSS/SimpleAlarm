@@ -1,46 +1,69 @@
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Alarm</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Alarm</title>
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gradient-to-br from-yellow-50 to-yellow-100 min-h-screen">
+    <div class="container mx-auto p-4 md:p-6 max-w-xl">
+      <h1 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-yellow-600 text-center">
+        Pomodoro Alarm
+      </h1>
 
-</head>
-<body class="bg-gradient-to-br from-yellow-50 to-yellow-100 min-h-screen">
-  <div class="container mx-auto p-6 max-w-2xl">
-    <div class="bg-white rounded-2xl shadow-xl p-8 border-4 border-yellow-400">
-      <h1 class="text-4xl font-bold mb-8 text-yellow-600 text-center">Simple Alarm</h1>
-
-      <div id="alarmImage" class="flex justify-center mt-8">
-        <img src="assets/Telur.png" alt="Telur" class="w-64 h-64 object-contain animate-wiggle" />
+      <div id="alarmImage" class="flex justify-center mb-4 md:mb-6">
+        <img
+          src="./assets/Telur.png"
+          alt="Telur"
+          class="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain animate-wiggle"
+        />
       </div>
 
-      <div class="mb-6">
-        <label for="timeInput" class="block mb-3 text-lg font-semibold text-gray-700">Set Waktu Alarm</label>
-        <input type="time" id="timeInput" class="border-2 border-yellow-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-lg" />
-      </div>
+      <div class="bg-white rounded-lg md:rounded-xl shadow-lg p-3 md:p-4 border-2 border-yellow-400">
+        <div class="mb-3 md:mb-4">
+          <div
+            id="status"
+            class="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-2 md:p-3 text-xs md:text-sm font-semibold text-gray-700 text-center"
+          ></div>
+        </div>
 
-      <div class="mb-6">
-        <label for="soundInput" class="block mb-3 text-lg font-semibold text-gray-700">Pilih Suara Alarm</label>
-        <input type="file" id="soundInput" accept="audio/*" class="border-2 border-yellow-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-yellow-400 file:text-white file:font-semibold hover:file:bg-yellow-500 file:cursor-pointer" />
-      </div>
+        <input
+          type="time"
+          id="timeInput"
+          class="mb-3 md:mb-4 border-2 border-yellow-300 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-sm md:text-base"
+        />
 
-      <div class="mb-6 flex gap-4">
-        <button id="setAlarmBtn" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors shadow-md hover:shadow-lg">
-          Set Alarm
-        </button>
-        <button id="deactivateBtn" class="flex-1 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors shadow-md hover:shadow-lg">
-          Matikan Alarm
-        </button>
-      </div>
-      
-      <div class="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-4">
-        <div id="status" class="text-xl font-semibold text-gray-700 text-center">Waktu belum diatur</div>
-      </div>
+        <div class="mb-3 md:mb-4">
+          <label
+            for="soundInput"
+            class="block mb-2 text-xs md:text-sm font-semibold text-gray-700"
+            >Pilih Suara Alarm</label
+          >
+          <input
+            type="file"
+            id="soundInput"
+            accept="audio/*"
+            class="border-2 border-yellow-300 rounded-lg p-1.5 md:p-2 w-full text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 file:mr-2 md:file:mr-3 file:py-1 file:px-2 md:file:px-3 file:rounded-lg file:border-0 file:bg-yellow-400 file:text-white file:font-semibold file:text-xs md:file:text-sm hover:file:bg-yellow-500 file:cursor-pointer"
+          />
+        </div>
 
-      
+        <div class="flex flex-col sm:flex-row gap-2 md:gap-3 justify-center">
+          <button
+            id="setAlarmBtn"
+            class="bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white px-4 py-2.5 md:py-2 rounded-md font-medium text-sm md:text-base transition-colors shadow w-full"
+          >
+            Set Alarm
+          </button>
+
+          <button
+            id="deactivateBtn"
+            class="bg-red-500 hover:bg-red-600 active:bg-red-700 text-white px-4 py-2.5 md:py-2 rounded-md font-medium text-sm md:text-base transition-colors shadow w-full"
+          >
+            Matikan Alarm
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-  <script type="module" src="src/app.js"></script>
-</body>
+    <script type="module" src="src/app.js"></script>
+  </body>
 </html>

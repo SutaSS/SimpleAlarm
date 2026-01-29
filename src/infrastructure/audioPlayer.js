@@ -6,13 +6,15 @@ export class AudioPlayer {
   play(customSound) {
     const sound = customSound || "assets/alarmAyam.wav";
     this.audio = new Audio(sound);
+    this.audio.loop = false;
     this.audio.play();
   }
 
   stop() {
     if (this.audio) {
-      this.audio.stop();
+      this.audio.pause();
       this.audio.currentTime = 0;
+      this.audio = null;
     }
   }
 }
