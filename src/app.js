@@ -1,12 +1,13 @@
 import { AlarmUsecase } from "./usecase/alarmUsecase.js";
 import { AudioPlayer } from "./infrastructure/audioPlayer.js";
-import { getTimeValue, getSoundFile, setStatus, clearStatus, setImage} from "./presentation/ui.js";
+import { getTimeValue, getSoundFile, setStatus, clearStatus, setImage, showSetAlarmButton, showDeactivateButton} from "./presentation/ui.js";
 
 const alarmUsecase = new AlarmUsecase(new AudioPlayer());
 let isRinging = false;
 
 setImage(false);
 clearStatus();
+showSetAlarmButton();
 
 document.getElementById("setAlarmBtn").addEventListener("click", () => {
   const time = getTimeValue();
@@ -22,6 +23,7 @@ document.getElementById("setAlarmBtn").addEventListener("click", () => {
   setStatus(`Alarm diset jam ${time}`);
   setImage(false);
   isRinging = false;
+  showSetAlarmButton();
 });
 
 document.getElementById("deactivateBtn").addEventListener("click", () => {
@@ -30,6 +32,7 @@ document.getElementById("deactivateBtn").addEventListener("click", () => {
   clearStatus();
   setImage(false);
   isRinging = false;
+  showSetAlarmButton();
 });
 
 setInterval(() => {
@@ -45,5 +48,6 @@ setInterval(() => {
     );
 
     isRinging = true;
+    showDeactivateButton(); 
   }
 }, 1000);

@@ -54,3 +54,13 @@ export function clearStatus() {
   
   document.getElementById("status").innerText = `Waktu belum diatur\n${currentDate}, ${currentTime}`;
 }
+
+export function showDeactivateButton() {
+  document.getElementById("setAlarmBtn").classList.add("hidden");
+  document.getElementById("deactivateBtn").classList.remove("hidden");
+}
+
+export function showSetAlarmButton() {
+  document.getElementById("setAlarmBtn").classList.remove("hidden");
+  document.getElementById("deactivateBtn").classList.add("hidden");
+}
